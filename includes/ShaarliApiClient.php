@@ -49,7 +49,7 @@ class ShaarliApiClient {
 		}
 		else {
 
-			throw new Exception('Unable to call API');
+			throw new Exception('Unable to call API: '. $url);
 		}
 	}
 
