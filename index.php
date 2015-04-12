@@ -66,6 +66,7 @@ include __DIR__ . '/includes/header.php';
 
 var id = '';
 var timer = 1000;
+var first = false;
 
 function river() {
 
@@ -74,7 +75,7 @@ function river() {
 		$.ajax({ 
 			type: 'GET',
 			url: 'index.php?json=1&id='+id,
-			async: false,
+			async: first,
 			dataType: 'json',
 			success: function( json ) {
 				if( json.count > 0 ) {
@@ -98,6 +99,7 @@ function river() {
 					}
 					id = json.id;
 					count_unread();
+					first = true;
 				}
 		}});
 
