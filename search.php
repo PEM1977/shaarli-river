@@ -32,7 +32,7 @@ include __DIR__ . '/includes/menu.php';
   <input id="input-search" class="form-control" name="q" value="<?php if(isset($searchterm)) echo $searchterm; ?>" style="width:60%;"/>
   <button type="submit" class="btn btn-success">Ok</button>
 <br />
-<small>Use <code>title:</code> to search only in item titles or <code>feed:</code> for feeds name.</small>
+<small>Use <code>title:</code> to search only in item titles, <code>feed:</code> for feeds name or <code>tag:</code> for categories.</small>
 </form>
 <br />
 
