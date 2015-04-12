@@ -29,7 +29,7 @@ if( isset($_GET['do']) && $_GET['do'] == 'rss' ) {
 			$content[] = $link->title;
 			$content[] = '</a>';
 			$content[] = ' (<a href="';
-			$content[] = SHAARLI_RIVER_URL;
+			$content[] = SHAARLI_RIVER_URL . (substr(SHAARLI_RIVER_URL,-1)!='/'?'/':'');
 			$content[] = 'discussion.php?url=';
 			$content[] = urlencode($link->permalink);
 			$content[] = '">Discussion</a>)';
