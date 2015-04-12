@@ -71,16 +71,16 @@ include __DIR__ . '/includes/header.php';
 
 var id = '';
 var timer = 1000;
-var first = false;
+var first = true;
 
 function river() {
-
+    var total = (first) ? "&total" : "";
 	if( timer > 99 ) {
 
 		$.ajax({ 
 			type: 'GET',
-			url: 'index.php?json=1&id='+id,
-			async: first,
+			url: 'index.php?json=1&id='+id+total,
+			async: !first,
 			dataType: 'json',
 			success: function( json ) {
 				if( json.count > 0 ) {
@@ -100,11 +100,12 @@ function river() {
 			        		node.hide();
 			        		$('#entries').prepend(node);
 			        		node.slideDown();
-						});						
+						});
+                        totallinks(json.count);
 					}
 					id = json.id;
 					count_unread();
-					first = true;
+					first = false;
 				}
 		}});
 
@@ -130,9 +131,17 @@ function count_unread() {
 		$('title').text(title);
 	}
 }
+function totallinks(count) {
+    var elem = $('#shaarecounter').find('span');
+    var total = parseInt(elem.text());
+    elem.fadeOut(500, function() {
+        $(this).text(total + count).fadeIn(500);
+    });
+}
 $(function() {
 	river();
 	$('#link-river').addClass('btn-primary');
+    totallinks(2);
 });
 </script>
 <?php include __DIR__ . '/includes/footer.php'; ?>
