@@ -18,7 +18,8 @@ define('SHAARLI_RIVER_URL', 'https://nexen.mkdir.fr/shaarli-river/');
 // Shaarli API url
 // You can host your own API, see: https://github.com/mknexen/shaarli-api
 define('SHAARLI_API_URL', 'https://nexen.mkdir.fr/shaarli-api/');
-
+// If nothing is displayed you may need to had index.php
+//define('SHAARLI_API_URL', 'https://nexen.mkdir.fr/shaarli-api/index.php');
 // Page title
 define('HEAD_TITLE', 'Shaarli Flux River');
 
