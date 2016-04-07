@@ -29,8 +29,10 @@ if( isset($_GET['json']) ) {
 			$content[] = '<a class="entry-title" target="_blank" href="' . $row->permalink . '">' . $row->title . '</a>';
 			$content[] = '<div class="entry-content">' . $row->content . '</div>';
             $content[] = '<div class="pull-right">';
-            foreach(explode(',', $row->categories) as $categorie) {
-                $content[] = '<a href="search.php?q=tag:'. urlencode($categorie) .'" class="btn btn-default btn-xs">'. $categorie .'</a>';
+            if ($row->categories != "") {
+            	foreach(explode(',', $row->categories) as $categorie) {
+                	$content[] = '<a href="search.php?q=tag:'. urlencode($categorie) .'" class="btn btn-default btn-xs">'. $categorie .'</a>';
+            	}
             }
 			$content[] = '</div><div class="clear"></div>';
 			$content[] = '</div>';
